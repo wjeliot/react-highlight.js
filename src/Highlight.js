@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { findDOMNode } from 'react-dom'
 import highlight from 'highlight.js'
 
 export default class Highlight extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    language: PropTypes.string,
-    style: PropTypes.object
+  constructor (props) {
+    super (props)
+    this.code = React.createRef()
   }
 
   componentDidMount () {
-    highlight.highlightBlock(findDOMNode(this.refs.code))
+    highlight.highlightElement(this.code.current)
   }
 
   componentDidUpdate () {
     highlight.initHighlighting.called = false
-    highlight.highlightBlock(findDOMNode(this.refs.code))
+    highlight.highlightElement(this.code.current)
   }
 
   render () {
@@ -30,11 +27,18 @@ export default class Highlight extends Component {
       >
         <code
           className={language}
-          ref='code'
+          ref={this.code}
         >
           {children}
         </code>
       </pre>
     )
   }
+}
+
+Highlight.propTypes = {
+  children: PropTypes.string,
+  className: PropTypes.string,
+  language: PropTypes.string,
+  style: PropTypes.object,
 }

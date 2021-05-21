@@ -90,7 +90,7 @@
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.4",
     "rimraf": "^2.5.2",
-    "standard": "^7.0.1",
+    "standard": "^16.0.3",
     "style-loader": "^0.13.1",
     "watch": "^0.18.0",
     "webpack": "^1.13.0",
@@ -98,8 +98,9 @@
     "worker-loader": "^0.7.0"
   },
   "dependencies": {
-    "highlight.js": "^9.3.0",
-    "prop-types": "^15.6.0"
+    "highlight.js": "^10.7.2",
+    "prop-types": "^15.6.0",
+    "react-highlight.js": "^1.0.7"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
